@@ -1,12 +1,22 @@
-湘泰出海 - 可分享的完整网址
+湘泰出海 - 可分享的完整网址（自己与别人均可打开）
 ================================================================
 
-【GitHub Pages】（将 你的用户名 替换为你的 GitHub 用户名）
+【Netlify - 若因用量暂停可改用下方新平台】
+主站：https://reliable-empanada-4e952f.netlify.app/
+评估方案：.../#evaluate  客服：.../admin-eval.html  物流：.../xiangtai-logistics.html
 
-主站：https://你的用户名.github.io/xiangtai-pages/
-评估方案：https://你的用户名.github.io/xiangtai-pages/#evaluate
-客服工作台：https://你的用户名.github.io/xiangtai-pages/admin-eval.html
-物流合作：https://你的用户名.github.io/xiangtai-pages/xiangtai-logistics.html
+【新部署 - 部署后请把下面换成你的真实地址】
+详见：部署到Vercel等平台.md
+
+Vercel 示例：https://你的项目.vercel.app/
+GitHub Pages 示例：https://用户名.github.io/仓库名/
+Cloudflare Pages 示例：https://你的项目.pages.dev/
+
+主站（首页）：[部署后替换]
+评估方案：主站网址 + #evaluate
+客服生成评估码：主站网址 + admin-eval.html
+物流合作：主站网址 + xiangtai-logistics.html
 
 ---
-【原 Netlify】（已超限暂停）https://reliable-empanada-4e952f.netlify.app/
+在 Cursor 中打开：按 Ctrl+Shift+P，输入 Simple Browser，选择 "Simple Browser: Show"，把上面主站网址粘贴进去即可预览。
+发给别人：直接复制主站网址发送，对方用浏览器打开即可。

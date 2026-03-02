@@ -7,27 +7,26 @@ create table if not exists public.eval_submissions (
   name text,
   phone text,
   company text,
-  sales_amount text,
   mall text,
   product_type text,
   logistics text,
   qualification text,
-  qualification_process text,
-  work_permit text,
+  qual_method text,
+  work_visa text,
+  work_visa_addr text,
   invoicing text,
-  legal_thailand text,
   remark text,
   created_at timestamptz default now()
 );
 
--- 若表已存在且为旧结构，可执行以下语句新增列（按需执行）：
+-- 若表已存在且为旧结构，可执行以下语句新增列（按需执行一次）：
 -- alter table public.eval_submissions add column if not exists product_type text;
 -- alter table public.eval_submissions add column if not exists logistics text;
 -- alter table public.eval_submissions add column if not exists qualification text;
--- alter table public.eval_submissions add column if not exists qualification_process text;
+-- alter table public.eval_submissions add column if not exists qual_method text;
+-- alter table public.eval_submissions add column if not exists work_visa text;
+-- alter table public.eval_submissions add column if not exists work_visa_addr text;
 -- alter table public.eval_submissions add column if not exists invoicing text;
--- alter table public.eval_submissions add column if not exists sales_amount text;
--- alter table public.eval_submissions add column if not exists legal_thailand text;
 
 alter table public.eval_submissions enable row level security;
 

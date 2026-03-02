@@ -91,7 +91,6 @@
     .eval-choice{display:flex;align-items:flex-start;gap:12px;cursor:pointer;padding:12px;border-radius:var(--radius-sm);transition:var(--transition);}
     .eval-choice:hover{background:rgba(27,99,240,0.04);}
     .eval-choice input{margin-top:3px;flex-shrink:0;}
-    .eval-choice .eval-option-wrap{flex:1;min-width:0;}
     .eval-choice span{font-size:14px;color:var(--text);}
     .eval-choice small{display:block;color:var(--muted);font-size:12px;margin-top:4px;}
     .eval-form .form-group{margin-bottom:16px;}
@@ -149,7 +148,7 @@
   <header>
     <div class="nav">
       <a href="#home" class="brand">
-        <div class="logo-box" aria-label="湘泰国际"><div class="logo-mark">XT</div></div>
+        <div class="logo-box"><img src="./assets/xiangtai-logo.png" alt="湘泰国际" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" /><div class="logo-mark" style="display:none;">XT</div></div>
         <div class="brand-text"><span class="cn">湘泰出海</span><span class="en">XIA<span>N</span>GTAI GO GLOBAL</span></div>
       </a>
       <nav class="nav-menu">
@@ -219,74 +218,70 @@
             <div class="form-group"><label class="label">联系人姓名 <span class="req">*</span></label><input class="input" name="name" required placeholder="请输入姓名" /></div>
             <div class="form-group"><label class="label">手机号 <span class="req">*</span></label><input class="input" name="phone" required placeholder="请输入手机号" /></div>
             <div class="form-group"><label class="label">公司/品牌名</label><input class="input" name="company" placeholder="选填" /></div>
-            <div class="form-group"><label class="label">销售额</label><input class="input" name="sales_amount" type="text" placeholder="选填，如：年销售额 100 万人民币" /></div>
           </div>
         </div>
         <div class="eval-card">
           <h2>1. Mall店需求</h2>
           <div class="eval-choices">
-            <label class="eval-choice"><input type="radio" name="mall" value="shopee" /><span><strong>1.1</strong> Shopee Mall</span></label>
-            <label class="eval-choice"><input type="radio" name="mall" value="tkmall" /><span><strong>1.2</strong> TK Mall</span></label>
-            <label class="eval-choice"><input type="radio" name="mall" value="both" /><span><strong>1.3</strong> 以上都是</span></label>
-            <label class="eval-choice"><input type="radio" name="mall" value="enterprise" /><span><strong>1.4</strong> 普通企业店</span></label>
-            <label class="eval-choice"><input type="radio" name="mall" value="none" /><span><strong>1.5</strong> 无店铺注册需求</span></label>
+            <label class="eval-choice"><input type="radio" name="mall" value="1.1" /><span><strong>1.1</strong> ShopeeMall</span></label>
+            <label class="eval-choice"><input type="radio" name="mall" value="1.2" /><span><strong>1.2</strong> TKMall</span></label>
+            <label class="eval-choice"><input type="radio" name="mall" value="1.3" /><span><strong>1.3</strong> 以上都是</span></label>
+            <label class="eval-choice"><input type="radio" name="mall" value="1.4" /><span><strong>1.4</strong> 普通企业店</span></label>
+            <label class="eval-choice"><input type="radio" name="mall" value="1.5" /><span><strong>1.5</strong> 无店铺注册需求</span></label>
           </div>
         </div>
         <div class="eval-card">
           <h2>2. 销售的产品类型</h2>
           <div class="eval-choices">
-            <label class="eval-choice"><input type="radio" name="product_type" value="general" /><div class="eval-option-wrap"><span><strong>2.1</strong> 普货</span><small>不需要办理资质的产品</small></div></label>
-            <label class="eval-choice"><input type="radio" name="product_type" value="licensed" /><div class="eval-option-wrap"><span><strong>2.2</strong> 涉证货</span><small>需要办理FDA/TISI/DLD等资质的产品</small></div></label>
+            <label class="eval-choice"><input type="radio" name="product_type" value="2.1" /><span><strong>2.1</strong> 普货</span><small>不需要办理资质的产品</small></label>
+            <label class="eval-choice"><input type="radio" name="product_type" value="2.2" /><span><strong>2.2</strong> 涉证货</span><small>需要办理FDA/TISI/DLD等资质的产品</small></label>
           </div>
         </div>
         <div class="eval-card">
           <h2>3. 物流清关</h2>
           <div class="eval-choices">
-            <label class="eval-choice"><input type="radio" name="logistics" value="formal" /><div class="eval-option-wrap"><span><strong>3.1</strong> 正清</span><small>产品缴纳关税增值税入境泰国</small></div></label>
-            <label class="eval-choice"><input type="radio" name="logistics" value="grey" /><div class="eval-option-wrap"><span><strong>3.2</strong> 灰清</span><small>无法提供产品的关单以及税票</small></div></label>
-            <label class="eval-choice"><input type="radio" name="logistics" value="both" /><span><strong>3.3</strong> 正清以及灰清都有</span></label>
+            <label class="eval-choice"><input type="radio" name="logistics" value="3.1" /><span><strong>3.1</strong> 正清</span><small>产品缴纳关税增值税入境泰国</small></label>
+            <label class="eval-choice"><input type="radio" name="logistics" value="3.2" /><span><strong>3.2</strong> 灰清</span><small>无法提供产品的关单以及税票</small></label>
+            <label class="eval-choice"><input type="radio" name="logistics" value="3.3" /><span><strong>3.3</strong> 正清以及灰清都有</span></label>
           </div>
         </div>
         <div class="eval-card">
           <h2>4. 资质需求</h2>
           <div class="eval-choices">
-            <label class="eval-choice"><input type="radio" name="qualification" value="fda" /><span><strong>4.1</strong> FDA</span></label>
-            <label class="eval-choice"><input type="radio" name="qualification" value="tisi" /><span><strong>4.2</strong> TISI</span></label>
-            <label class="eval-choice"><input type="radio" name="qualification" value="dld" /><span><strong>4.3</strong> DLD</span></label>
-            <label class="eval-choice"><input type="radio" name="qualification" value="nbtc" /><span><strong>4.4</strong> NBTC</span></label>
-            <label class="eval-choice"><input type="radio" name="qualification" value="none" /><span><strong>4.5</strong> 无认证需求</span></label>
+            <label class="eval-choice"><input type="radio" name="qualification" value="4.1" /><span><strong>4.1</strong> FDA</span></label>
+            <label class="eval-choice"><input type="radio" name="qualification" value="4.2" /><span><strong>4.2</strong> TISI</span></label>
+            <label class="eval-choice"><input type="radio" name="qualification" value="4.3" /><span><strong>4.3</strong> DLD</span></label>
+            <label class="eval-choice"><input type="radio" name="qualification" value="4.4" /><span><strong>4.4</strong> NBTC</span></label>
+            <label class="eval-choice"><input type="radio" name="qualification" value="4.5" /><span><strong>4.5</strong> 无认证需求</span></label>
           </div>
-          <p class="eval-option-desc" style="font-size:13px;color:var(--muted);margin-top:12px;margin-bottom:8px;">资质办理方式（选填）</p>
+          <p class="eval-option-desc" style="font-size:13px;color:var(--muted);margin-top:12px;margin-bottom:8px;">办理方式（如需认证）：</p>
           <div class="eval-choices">
-            <label class="eval-choice"><input type="radio" name="qualification_process" value="affiliate" /><span><strong>4.1.1</strong> 挂靠办理</span></label>
-            <label class="eval-choice"><input type="radio" name="qualification_process" value="own_address" /><div class="eval-option-wrap"><span><strong>4.1.2</strong> 自有地址真实办理</span><small>在泰国有可以认证的实际地址</small></div></label>
-            <label class="eval-choice"><input type="radio" name="qualification_process" value="no_address" /><div class="eval-option-wrap"><span><strong>4.1.3</strong> 没有地址真实办理</span><small>在泰国无可以认证的实际地址</small></div></label>
+            <label class="eval-choice"><input type="radio" name="qual_method" value="4.1.1" /><span><strong>4.1.1</strong> 挂靠办理</span></label>
+            <label class="eval-choice"><input type="radio" name="qual_method" value="4.1.2" /><span><strong>4.1.2</strong> 自有地址真实办理</span><small>在泰国有可以认证的实际地址</small></label>
+            <label class="eval-choice"><input type="radio" name="qual_method" value="4.1.3" /><span><strong>4.1.3</strong> 没有地址真实办理</span><small>在泰国无可以认证的实际地址</small></label>
           </div>
         </div>
         <div class="eval-card">
           <h2>5. 工作签证需求</h2>
           <div class="eval-choices">
-            <label class="eval-choice"><input type="radio" name="work_permit" value="yes_with_address" /><div class="eval-option-wrap"><span><strong>5.1</strong> 是</span><small>5.1.1 有实际工作地址挂靠</small></div></label>
-            <label class="eval-choice"><input type="radio" name="work_permit" value="yes_no_address" /><div class="eval-option-wrap"><span><strong>5.1</strong> 是</span><small>5.1.2 无实际工作地址挂靠</small></div></label>
-            <label class="eval-choice"><input type="radio" name="work_permit" value="no" /><span><strong>5.2</strong> 否</span></label>
+            <label class="eval-choice"><input type="radio" name="work_visa" value="5.1" /><span><strong>5.1</strong> 是</span></label>
+            <label class="eval-choice"><input type="radio" name="work_visa" value="5.2" /><span><strong>5.2</strong> 否</span></label>
+          </div>
+          <p class="eval-option-desc" style="font-size:13px;color:var(--muted);margin-top:12px;margin-bottom:8px;">若选「是」：</p>
+          <div class="eval-choices">
+            <label class="eval-choice"><input type="radio" name="work_visa_addr" value="5.1.1" /><span><strong>5.1.1</strong> 有实际工作地址挂靠</span></label>
+            <label class="eval-choice"><input type="radio" name="work_visa_addr" value="5.1.2" /><span><strong>5.1.2</strong> 无实际工作地址挂靠</span></label>
           </div>
         </div>
         <div class="eval-card">
           <h2>6. 开票需求</h2>
           <div class="eval-choices">
-            <label class="eval-choice"><input type="radio" name="invoicing" value="yes" /><span><strong>6.1</strong> 有</span></label>
-            <label class="eval-choice"><input type="radio" name="invoicing" value="no" /><span><strong>6.2</strong> 无</span></label>
+            <label class="eval-choice"><input type="radio" name="invoicing" value="6.1" /><span><strong>6.1</strong> 有</span></label>
+            <label class="eval-choice"><input type="radio" name="invoicing" value="6.2" /><span><strong>6.2</strong> 无</span></label>
           </div>
         </div>
         <div class="eval-card">
-          <h2>7. 法人是否能来泰国开户</h2>
-          <div class="eval-choices">
-            <label class="eval-choice"><input type="radio" name="legal_thailand" value="yes" /><span><strong>7.1</strong> 可以</span></label>
-            <label class="eval-choice"><input type="radio" name="legal_thailand" value="no" /><span><strong>7.2</strong> 不可以</span></label>
-          </div>
-        </div>
-        <div class="eval-card">
-          <h2>8. 补充说明</h2>
+          <h2>7. 补充说明</h2>
           <div class="eval-form"><div class="form-group"><label class="label">其他需求/品类/计划时间（选填）</label><textarea class="input" name="remark" placeholder="例如：经营品类、预计上线时间、是否已有泰国地址/人员等"></textarea></div></div>
         </div>
         <button class="btn btn-primary" type="submit" style="width:100%;padding:16px;font-size:16px;">提交评估表</button>
@@ -482,8 +477,7 @@
         if(usedCodes.indexOf(code)!==-1){setErr('该通行证已使用');return;}
         var form=document.getElementById('evalForm');
         var get=function(n){var el=form.querySelector('[name="'+n+'"]');return el?el.value.trim():'';};
-        var getChecked=function(n){var el=form.querySelector('[name="'+n+'"]:checked');return el?el.value:'';};
-        var row={eval_code:code,name:get('name'),phone:get('phone'),company:get('company'),sales_amount:get('sales_amount'),mall:getChecked('mall'),product_type:getChecked('product_type'),logistics:getChecked('logistics'),qualification:getChecked('qualification'),qualification_process:getChecked('qualification_process'),work_permit:getChecked('work_permit'),invoicing:getChecked('invoicing'),legal_thailand:getChecked('legal_thailand'),remark:get('remark')};
+        var row={eval_code:code,name:get('name'),phone:get('phone'),company:get('company'),mall:get('mall'),product_type:get('product_type'),logistics:get('logistics'),qualification:get('qualification'),qual_method:get('qual_method'),work_visa:get('work_visa'),work_visa_addr:get('work_visa_addr'),invoicing:get('invoicing'),remark:get('remark')};
         var supabaseUrl=(typeof window.SUPABASE_URL!=='undefined'?window.SUPABASE_URL:'').trim();
         var supabaseKey=(typeof window.SUPABASE_ANON_KEY!=='undefined'?window.SUPABASE_ANON_KEY:'').trim();
         if(supabaseUrl&&supabaseKey){
@@ -507,26 +501,9 @@
 
       function showResult(){
         var val=function(n){var el=document.querySelector('#evalForm [name="'+n+'"]:checked');return el?el.value:'';};
-        var mall=val('mall'),productType=val('product_type'),logistics=val('logistics'),qual=val('qualification'),qualProcess=val('qualification_process'),wp=val('work_permit'),inv=val('invoicing'),legalTh=val('legal_thailand');
-        var labels={mall:{shopee:'1.1 Shopee Mall',tkmall:'1.2 TK Mall',both:'1.3 以上都是',enterprise:'1.4 普通企业店',none:'1.5 无店铺注册需求'},product_type:{general:'2.1 普货',licensed:'2.2 涉证货'},logistics:{formal:'3.1 正清',grey:'3.2 灰清',both:'3.3 正清以及灰清都有'},qualification:{fda:'4.1 FDA',tisi:'4.2 TISI',dld:'4.3 DLD',nbtc:'4.4 NBTC',none:'4.5 无认证需求'},qualification_process:{affiliate:'4.1.1 挂靠办理',own_address:'4.1.2 自有地址真实办理',no_address:'4.1.3 没有地址真实办理'},work_permit:{yes_with_address:'5.1 是（有实际工作地址挂靠）',yes_no_address:'5.1 是（无实际工作地址挂靠）',no:'5.2 否'},invoicing:{yes:'6.1 有',no:'6.2 无'},legal_thailand:{yes:'7.1 可以',no:'7.2 不可以'}};
-        var salesAmount=document.querySelector('#evalForm [name="sales_amount"]'); salesAmount=salesAmount?salesAmount.value.trim():'';
-        var lines=['<strong>需求要点总结</strong>','1. Mall店需求：'+(labels.mall[mall]||mall||'未选择'),'2. 销售的产品类型：'+(labels.product_type[productType]||productType||'未选择'),'3. 物流清关：'+(labels.logistics[logistics]||logistics||'未选择'),'4. 资质需求：'+(labels.qualification[qual]||qual||'未选择')+(qualProcess?('；办理方式：'+labels.qualification_process[qualProcess]):''),'5. 工作签证需求：'+(labels.work_permit[wp]||wp||'未选择'),'6. 开票需求：'+(labels.invoicing[inv]||inv||'未选择'),'7. 法人是否能来泰国开户：'+(labels.legal_thailand[legalTh]||legalTh||'未选择')];
-        if(salesAmount)lines.splice(1,0,'销售额：'+salesAmount);
-        var schemes=[];
-        if(mall&&mall!=='none'){ if(mall==='shopee')schemes.push('Shopee Mall 入驻方案（含 VAT 注册）'); else if(mall==='tkmall')schemes.push('TK Mall 入驻方案'); else if(mall==='both')schemes.push('Shopee + TK Mall 双平台入驻方案（含 VAT）'); else if(mall==='enterprise')schemes.push('普通企业店注册方案'); }
-        if((mall&&mall!=='none')||(qual&&qual!=='none')||(wp&&wp!=='no'))schemes.push('泰国公司注册与地址挂靠方案');
-        if(productType==='general')schemes.push('普货物流与清关方案');
-        if(productType==='licensed')schemes.push('涉证产品资质+物流一体化方案');
-        if(logistics==='formal'||logistics==='both')schemes.push('正清进口方案（关税+VAT+进口许可证）');
-        if(logistics==='grey'||logistics==='both')schemes.push('灰清/双清到门方案');
-        if(qual==='fda')schemes.push('FDA 认证办理方案'+(qualProcess?('（'+labels.qualification_process[qualProcess]+'）':'')); if(qual==='tisi')schemes.push('TISI 认证办理方案'+(qualProcess?('（'+labels.qualification_process[qualProcess]+'）':'')); if(qual==='dld')schemes.push('DLD 认证办理方案'+(qualProcess?('（'+labels.qualification_process[qualProcess]+'）':'')); if(qual==='nbtc')schemes.push('NBTC 认证办理方案'+(qualProcess?('（'+labels.qualification_process[qualProcess]+'）':''));
-        if(wp&&wp!=='no')schemes.push('工作签证/工作证方案'+(wp==='yes_with_address'?'（有地址挂靠）':'（无地址挂靠）'));
-        if(inv==='yes')schemes.push('开票与财税合规方案');
-        if(schemes.length)lines.push('<br/><strong>根据您的选择，为您推荐以下方案</strong>'); schemes.forEach(function(s){lines.push('· '+s);});
-        lines.push('<br/><strong>系统提示</strong>');
-        if(mall==='shopee'||mall==='both'||logistics==='formal'||logistics==='both')lines.push('· 您的选择可能涉及 <strong>VAT（税号）</strong>。');
-        if(qual&&qual!=='none'||wp&&wp!=='no')lines.push('· 您的选择可能涉及 <strong>地址验证</strong>（请准备可验证的公司地址与配套条件）。');
-        if(legalTh==='no')lines.push('· 法人无法来泰国开户，需提前沟通 <strong>远程/代理开户</strong> 等替代方案。');
+        var mall=val('mall'),productType=val('product_type'),logistics=val('logistics'),qual=val('qualification'),qualMethod=val('qual_method'),workVisa=val('work_visa'),workVisaAddr=val('work_visa_addr'),invoicing=val('invoicing');
+        var labels={mall:'1. Mall店需求',product_type:'2. 销售的产品类型',logistics:'3. 物流清关',qualification:'4. 资质需求',qual_method:'4. 办理方式',work_visa:'5. 工作签证需求',work_visa_addr:'5. 工作地址',invoicing:'6. 开票需求'};
+        var lines=['<strong>需求要点总结</strong>',labels.mall+'：'+(mall||'未选择'),labels.product_type+'：'+(productType||'未选择'),labels.logistics+'：'+(logistics||'未选择'),labels.qualification+'：'+(qual||'未选择'),labels.qual_method+'：'+(qualMethod||'未选择'),labels.work_visa+'：'+(workVisa||'未选择'),labels.work_visa_addr+'：'+(workVisaAddr||'未选择'),labels.invoicing+'：'+(invoicing||'未选择')];
         document.getElementById('evalResult').style.display='block';
         document.getElementById('evalResult').innerHTML=lines.join('<br/>');
       }
