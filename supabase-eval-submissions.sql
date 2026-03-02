@@ -15,6 +15,7 @@ create table if not exists public.eval_submissions (
   work_visa text,
   work_visa_addr text,
   invoicing text,
+  rep_account_visit text,
   remark text,
   created_at timestamptz default now()
 );
@@ -27,6 +28,7 @@ create table if not exists public.eval_submissions (
 -- alter table public.eval_submissions add column if not exists work_visa text;
 -- alter table public.eval_submissions add column if not exists work_visa_addr text;
 -- alter table public.eval_submissions add column if not exists invoicing text;
+-- alter table public.eval_submissions add column if not exists rep_account_visit text;
 
 alter table public.eval_submissions enable row level security;
 

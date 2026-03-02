@@ -5,17 +5,13 @@
 主站：https://reliable-empanada-4e952f.netlify.app/
 评估方案：.../#evaluate  客服：.../admin-eval.html  物流：.../xiangtai-logistics.html
 
-【新部署 - 部署后请把下面换成你的真实地址】
-详见：部署到Vercel等平台.md
+【Vercel 主站 - 当前使用】
+主站（首页）：https://xiangtai-web.vercel.app/
+评估方案：https://xiangtai-web.vercel.app/#evaluate
+客服生成评估码：https://xiangtai-web.vercel.app/admin-eval.html
+物流合作：https://xiangtai-web.vercel.app/xiangtai-logistics.html
 
-Vercel 示例：https://你的项目.vercel.app/
-GitHub Pages 示例：https://用户名.github.io/仓库名/
-Cloudflare Pages 示例：https://你的项目.pages.dev/
-
-主站（首页）：[部署后替换]
-评估方案：主站网址 + #evaluate
-客服生成评估码：主站网址 + admin-eval.html
-物流合作：主站网址 + xiangtai-logistics.html
+（其他平台说明见：部署到Vercel等平台.md）
 
 ---
 在 Cursor 中打开：按 Ctrl+Shift+P，输入 Simple Browser，选择 "Simple Browser: Show"，把上面主站网址粘贴进去即可预览。

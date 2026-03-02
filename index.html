@@ -281,7 +281,14 @@
           </div>
         </div>
         <div class="eval-card">
-          <h2>7. 补充说明</h2>
+          <h2>7. 法人是否能来泰国开户</h2>
+          <div class="eval-choices">
+            <label class="eval-choice"><input type="radio" name="rep_account_visit" value="可以" /><span>可以</span></label>
+            <label class="eval-choice"><input type="radio" name="rep_account_visit" value="不可以" /><span>不可以</span></label>
+          </div>
+        </div>
+        <div class="eval-card">
+          <h2>8. 补充说明</h2>
           <div class="eval-form"><div class="form-group"><label class="label">其他需求/品类/计划时间（选填）</label><textarea class="input" name="remark" placeholder="例如：经营品类、预计上线时间、是否已有泰国地址/人员等"></textarea></div></div>
         </div>
         <button class="btn btn-primary" type="submit" style="width:100%;padding:16px;font-size:16px;">提交评估表</button>
@@ -477,7 +484,7 @@
         if(usedCodes.indexOf(code)!==-1){setErr('该通行证已使用');return;}
         var form=document.getElementById('evalForm');
         var get=function(n){var el=form.querySelector('[name="'+n+'"]');return el?el.value.trim():'';};
-        var row={eval_code:code,name:get('name'),phone:get('phone'),company:get('company'),mall:get('mall'),product_type:get('product_type'),logistics:get('logistics'),qualification:get('qualification'),qual_method:get('qual_method'),work_visa:get('work_visa'),work_visa_addr:get('work_visa_addr'),invoicing:get('invoicing'),remark:get('remark')};
+        var row={eval_code:code,name:get('name'),phone:get('phone'),company:get('company'),mall:get('mall'),product_type:get('product_type'),logistics:get('logistics'),qualification:get('qualification'),qual_method:get('qual_method'),work_visa:get('work_visa'),work_visa_addr:get('work_visa_addr'),invoicing:get('invoicing'),rep_account_visit:get('rep_account_visit'),remark:get('remark')};
         var supabaseUrl=(typeof window.SUPABASE_URL!=='undefined'?window.SUPABASE_URL:'').trim();
         var supabaseKey=(typeof window.SUPABASE_ANON_KEY!=='undefined'?window.SUPABASE_ANON_KEY:'').trim();
         if(supabaseUrl&&supabaseKey){
@@ -501,9 +508,9 @@
 
       function showResult(){
         var val=function(n){var el=document.querySelector('#evalForm [name="'+n+'"]:checked');return el?el.value:'';};
-        var mall=val('mall'),productType=val('product_type'),logistics=val('logistics'),qual=val('qualification'),qualMethod=val('qual_method'),workVisa=val('work_visa'),workVisaAddr=val('work_visa_addr'),invoicing=val('invoicing');
-        var labels={mall:'1. Mall店需求',product_type:'2. 销售的产品类型',logistics:'3. 物流清关',qualification:'4. 资质需求',qual_method:'4. 办理方式',work_visa:'5. 工作签证需求',work_visa_addr:'5. 工作地址',invoicing:'6. 开票需求'};
-        var lines=['<strong>需求要点总结</strong>',labels.mall+'：'+(mall||'未选择'),labels.product_type+'：'+(productType||'未选择'),labels.logistics+'：'+(logistics||'未选择'),labels.qualification+'：'+(qual||'未选择'),labels.qual_method+'：'+(qualMethod||'未选择'),labels.work_visa+'：'+(workVisa||'未选择'),labels.work_visa_addr+'：'+(workVisaAddr||'未选择'),labels.invoicing+'：'+(invoicing||'未选择')];
+        var mall=val('mall'),productType=val('product_type'),logistics=val('logistics'),qual=val('qualification'),qualMethod=val('qual_method'),workVisa=val('work_visa'),workVisaAddr=val('work_visa_addr'),invoicing=val('invoicing'),repAccountVisit=val('rep_account_visit');
+        var labels={mall:'1. Mall店需求',product_type:'2. 销售的产品类型',logistics:'3. 物流清关',qualification:'4. 资质需求',qual_method:'4. 办理方式',work_visa:'5. 工作签证需求',work_visa_addr:'5. 工作地址',invoicing:'6. 开票需求',rep_account_visit:'7. 法人是否能来泰国开户'};
+        var lines=['<strong>需求要点总结</strong>',labels.mall+'：'+(mall||'未选择'),labels.product_type+'：'+(productType||'未选择'),labels.logistics+'：'+(logistics||'未选择'),labels.qualification+'：'+(qual||'未选择'),labels.qual_method+'：'+(qualMethod||'未选择'),labels.work_visa+'：'+(workVisa||'未选择'),labels.work_visa_addr+'：'+(workVisaAddr||'未选择'),labels.invoicing+'：'+(invoicing||'未选择'),labels.rep_account_visit+'：'+(repAccountVisit||'未选择')];
         document.getElementById('evalResult').style.display='block';
         document.getElementById('evalResult').innerHTML=lines.join('<br/>');
       }
