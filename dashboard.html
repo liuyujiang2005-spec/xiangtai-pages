@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>工作台 - 湘泰出海</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background: #f0f4f8; min-height: 100vh; }
+    .top { background: #fff; padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 1px 0 rgba(0,0,0,0.06); }
+    .top a { color: #1b63f0; text-decoration: none; font-size: 14px; }
+    .top .user { font-size: 13px; color: #666; }
+    .top .user span { color: #1b63f0; font-weight: 600; margin-right: 8px; }
+    .main { max-width: 900px; margin: 0 auto; padding: 32px 24px; }
+    .panel { background: #fff; border-radius: 14px; padding: 28px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); margin-bottom: 24px; }
+    .panel h2 { font-size: 18px; margin-bottom: 16px; color: #1a1a2e; }
+    .panel p { font-size: 14px; color: #666; line-height: 1.6; margin-bottom: 12px; }
+    .role-badge { display: inline-block; padding: 4px 12px; border-radius: 999px; font-size: 12px; font-weight: 600; margin-left: 8px; }
+    .role-badge.admin { background: #ffebee; color: #c62828; }
+    .role-badge.employee { background: #e3f2fd; color: #1565c0; }
+    .role-badge.customer { background: #e8f5e9; color: #2e7d32; }
+    .btn { display: inline-block; padding: 10px 20px; background: linear-gradient(135deg, #1b63f0, #0d47a1); color: #fff; border-radius: 999px; font-size: 14px; font-weight: 600; text-decoration: none; margin-right: 10px; margin-top: 8px; border: none; cursor: pointer; }
+    .btn:hover { opacity: 0.95; }
+    .btn-outline { background: #fff; color: #1b63f0; border: 1px solid #1b63f0; }
+    .code-box { background: #e8f4fd; padding: 16px; border-radius: 10px; font-size: 18px; font-weight: 700; color: #1b63f0; margin-top: 12px; word-break: break-all; }
+    .code-box.empty { color: #999; font-weight: 400; font-size: 14px; }
+    label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; }
+    input { padding: 10px 12px; border: 1px solid #c5d3e0; border-radius: 8px; font-size: 14px; margin-bottom: 12px; max-width: 280px; width: 100%; }
+    .loading { text-align: center; padding: 40px; color: #666; }
+    .hidden { display: none !important; }
+  </style>
+</head>
+<body>
+  <div class="top">
+    <a href="index.html">← 返回首页</a>
+    <span class="user"><span id="userEmail">--</span><span id="userRole"></span><a href="#" id="logoutLink">退出</a></span>
+  </div>
+  <div id="loading" class="main loading">正在加载…</div>
+  <div id="content" class="main hidden">
+    <div class="panel">
+      <h2>工作台 <span id="roleBadge" class="role-badge"></span></h2>
+      <p id="welcomeText"></p>
+    </div>
+    <div id="adminPanel" class="panel hidden">
+      <h2>管理员功能</h2>
+      <p>管理用户角色、系统配置、查看全部评估码与使用记录。</p>
+      <a href="admin-eval.html" class="btn">生成评估码</a>
+      <p style="margin-top:16px;font-size:13px;color:#999;">用户角色请在 Supabase 后台 Table Editor → profiles 中修改 role 字段（admin / employee / customer）。</p>
+    </div>
+    <div id="employeePanel" class="panel hidden">
+      <h2>员工功能 · 自动生成评估码</h2>
+      <p>生成评估码后发给客户，客户在网站「评估方案」处输入即可。</p>
+      <label>生成密码</label>
+      <input type="password" id="genPwd" placeholder="请输入生成密码" />
+      <button type="button" class="btn" id="genBtn">生成评估码</button>
+      <div id="genOut" class="code-box empty">生成后将显示在这里</div>
+    </div>
+    <div id="customerPanel" class="panel hidden">
+      <h2>客户中心</h2>
+      <p>您已登录为客户账号。如需填写方案评估，请向客服索取评估码后前往首页使用。</p>
+      <a href="index.html#evaluate" class="btn">前往评估方案</a>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    var SUPABASE_URL = '';
+    var SUPABASE_ANON_KEY = '';
+    if (!SUPABASE_URL || !SUPABASE_ANON_KEY) {
+      document.getElementById('loading').innerHTML = '请先配置 SUPABASE_URL 和 SUPABASE_ANON_KEY（见评估码配置说明）。';
+      document.getElementById('loading').classList.remove('hidden');
+    } else {
+      var supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+      supabase.auth.getUser().then(function(r) {
+        if (r.error || !r.data.user) {
+          window.location.href = 'login.html';
+          return;
+        }
+        var uid = r.data.user.id;
+        var email = r.data.user.email || '';
+        supabase.from('profiles').select('role, full_name').eq('id', uid).single().then(function(p) {
+          var role = (p.data && p.data.role) ? p.data.role : 'customer';
+          document.getElementById('userEmail').textContent = email;
+          document.getElementById('userRole').textContent = role === 'admin' ? '管理员' : role === 'employee' ? '员工' : '客户';
+          document.getElementById('roleBadge').textContent = role === 'admin' ? '管理员' : role === 'employee' ? '员工' : '客户';
+          document.getElementById('roleBadge').className = 'role-badge ' + role;
+          var welcome = { admin: '您好，管理员。您可以管理评估码、用户与系统配置。', employee: '您好。您可以在此生成评估码并发放给客户。', customer: '您好。您可以前往首页使用评估码填写方案评估。' };
+          document.getElementById('welcomeText').textContent = welcome[role] || welcome.customer;
+          document.getElementById('adminPanel').classList.toggle('hidden', role !== 'admin');
+          document.getElementById('employeePanel').classList.toggle('hidden', role !== 'employee' && role !== 'admin');
+          document.getElementById('customerPanel').classList.toggle('hidden', role !== 'customer');
+          document.getElementById('loading').classList.add('hidden');
+          document.getElementById('content').classList.remove('hidden');
+          if (role === 'employee' || role === 'admin') {
+            document.getElementById('genBtn').addEventListener('click', function() {
+              var pwd = document.getElementById('genPwd').value.trim();
+              var out = document.getElementById('genOut');
+              if (!pwd) { out.textContent = '请输入生成密码'; out.className = 'code-box'; return; }
+              supabase.rpc('generate_eval_code', { admin_pwd: pwd }).then(function(r) {
+                if (r.error) { out.textContent = r.error.message === 'invalid' ? '密码错误' : '生成失败'; out.className = 'code-box'; return; }
+                out.textContent = r.data;
+                out.className = 'code-box';
+              });
+            });
+          }
+        }).catch(function() {
+          document.getElementById('userRole').textContent = '客户';
+          document.getElementById('roleBadge').textContent = '客户';
+          document.getElementById('customerPanel').classList.remove('hidden');
+          document.getElementById('loading').classList.add('hidden');
+          document.getElementById('content').classList.remove('hidden');
+        });
+        document.getElementById('logoutLink').addEventListener('click', function(e) {
+          e.preventDefault();
+          supabase.auth.signOut().then(function() { window.location.href = 'index.html'; });
+        });
+      });
+    }
+  </script>
+</body>
+</html>

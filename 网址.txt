@@ -1,0 +1,18 @@
+湘泰出海 - 可分享的完整网址（自己与别人均可打开）
+================================================================
+
+主站（首页）：
+https://reliable-empanada-4e952f.netlify.app/
+
+评估方案：
+https://reliable-empanada-4e952f.netlify.app/#evaluate
+
+客服生成评估码：
+https://reliable-empanada-4e952f.netlify.app/admin-eval.html
+
+物流合作：
+https://reliable-empanada-4e952f.netlify.app/xiangtai-logistics.html
+
+---
+在 Cursor 中打开：按 Ctrl+Shift+P，输入 Simple Browser，选择 "Simple Browser: Show"，把上面主站网址粘贴进去即可预览。
+发给别人：直接复制主站网址发送，对方用浏览器打开即可。

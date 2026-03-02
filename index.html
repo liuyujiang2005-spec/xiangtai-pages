@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>湘泰出海 - 泰国一站式本土服务平台</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="keywords" content="湘泰出海, 湘泰国际, 泰国公司注册, 税务咨询, 跨境物流, 海外仓" />
+  <meta name="description" content="湘泰出海专注泰国本土一站式服务，涵盖公司注册咨询、税务咨询、物流、海外仓等核心业务。" />
+  <style>
+    :root{
+      --primary:#1b63f0;--primary-dark:#0d47a1;--accent:#ff8a00;--accent2:#e65100;
+      --green:#2e7d32;--teal:#00897b;--purple:#7b1fa2;--coral:#ff5722;
+      --bg:#f0f4f8;--bg2:#e8eef5;--text:#1a1a2e;--muted:#5c6b7a;
+      --border:#c5d3e0;--radius-lg:14px;--radius-sm:10px;
+      --shadow:0 4px 20px rgba(27,99,240,0.12);--shadow-strong:0 8px 32px rgba(0,0,0,0.12);
+      --transition:0.25s ease;--max-width:1100px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text);line-height:1.65;}
+    a{text-decoration:none;color:inherit;}
+    header{position:sticky;top:0;z-index:100;background:linear-gradient(135deg,rgba(255,255,255,0.98),rgba(245,248,252,0.98));backdrop-filter:blur(12px);box-shadow:0 2px 12px rgba(27,99,240,0.08);}
+    .nav{max-width:var(--max-width);margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+    .brand{display:flex;align-items:center;gap:14px;}
+    .logo-box{width:52px;height:52px;display:flex;align-items:center;justify-content:center;flex-shrink:0;border-radius:12px;background:linear-gradient(135deg,var(--primary),var(--teal));}
+    .logo-box img{width:100%;height:100%;object-fit:contain;border-radius:12px;}
+    .logo-mark{width:52px;height:52px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:22px;color:#fff;font-family:system-ui,sans-serif;}
+    .brand-text .cn{font-size:21px;font-weight:700;color:var(--text);}
+    .brand-text .en{font-size:11px;color:var(--muted);}
+    .brand-text .en span{color:var(--primary);font-weight:600;}
+    .nav-menu{display:flex;gap:20px;font-size:14px;color:var(--muted);flex-wrap:wrap;}
+    .nav-menu a{position:relative;padding:6px 0;font-weight:500;}
+    .nav-menu a:hover{color:var(--primary);}
+    .nav-menu a:hover::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:linear-gradient(90deg,var(--primary),var(--accent));border-radius:1px;}
+    .btn{padding:10px 22px;border-radius:999px;font-size:14px;font-weight:600;cursor:pointer;border:none;transition:var(--transition);}
+    .btn-primary{background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;box-shadow:0 4px 14px rgba(27,99,240,0.35);}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(27,99,240,0.45);}
+    .btn-accent{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;}
+    .btn-accent:hover{transform:translateY(-2px);}
+    section{max-width:var(--max-width);margin:0 auto;padding:56px 24px 64px;}
+    .section-label{font-size:12px;color:var(--accent);text-transform:uppercase;letter-spacing:0.15em;margin-bottom:10px;display:inline-block;font-weight:600;}
+    .section-label::before{content:"";display:inline-block;width:24px;height:3px;background:linear-gradient(90deg,var(--accent),var(--primary));border-radius:2px;vertical-align:middle;margin-right:10px;}
+    .section-title{font-size:28px;font-weight:700;margin-bottom:14px;background:linear-gradient(135deg,var(--text),var(--primary-dark));-webkit-background-clip:text;background-clip:text;color:transparent;}
+    .section-subtitle{font-size:15px;color:var(--muted);margin-bottom:28px;line-height:1.7;}
+    .intro-hero{text-align:center;padding:80px 24px 100px;background:linear-gradient(165deg,#fff 0%,#e8f4fd 40%,#f5f0ff 100%);border-radius:0 0 40px 40px;position:relative;overflow:hidden;}
+    .intro-hero::before{content:"";position:absolute;top:-50%;left:-20%;width:60%;height:100%;background:radial-gradient(circle,rgba(27,99,240,0.08) 0%,transparent 70%);pointer-events:none;}
+    .intro-hero::after{content:"";position:absolute;bottom:-30%;right:-10%;width:40%;height:80%;background:radial-gradient(circle,rgba(255,138,0,0.06) 0%,transparent 70%);pointer-events:none;}
+    .intro-hero h1{font-size:clamp(32px,5vw,48px);line-height:1.2;margin-bottom:20px;position:relative;z-index:1;}
+    .intro-hero h1 .hl{background:linear-gradient(120deg,var(--primary),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent;}
+    .intro-hero p{font-size:17px;color:var(--muted);max-width:680px;margin:0 auto;line-height:1.8;position:relative;z-index:1;}
+    .intro-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;margin-top:40px;position:relative;z-index:1;}
+    .intro-card{background:#fff;padding:24px;border-radius:var(--radius-lg);box-shadow:var(--shadow);border:1px solid rgba(255,255,255,0.8);transition:var(--transition);}
+    .intro-card:nth-child(1){border-left:4px solid var(--primary);}
+    .intro-card:nth-child(2){border-left:4px solid var(--teal);}
+    .intro-card:nth-child(3){border-left:4px solid var(--accent);}
+    .intro-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-strong);}
+    .intro-card .val{font-size:28px;font-weight:800;color:var(--primary);margin-bottom:4px;}
+    .intro-card .lbl{font-size:13px;color:var(--muted);}
+    .service-card{background:#fff;border-radius:var(--radius-lg);padding:28px;box-shadow:var(--shadow);border:1px solid rgba(226,232,240,0.9);transition:var(--transition);overflow:hidden;}
+    .service-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-strong);}
+    .service-card .icon{width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:28px;margin-bottom:18px;}
+    .service-card#regCard .icon,.service-card#register .icon{background:linear-gradient(135deg,rgba(27,99,240,0.12),rgba(0,137,123,0.12));}
+    .service-card#tax .icon{background:linear-gradient(135deg,rgba(46,125,50,0.12),rgba(0,137,123,0.12));}
+    .service-card#logistics .icon{background:linear-gradient(135deg,rgba(255,138,0,0.12),rgba(230,81,0,0.12));}
+    .service-card#warehouse .icon{background:linear-gradient(135deg,rgba(123,31,162,0.12),rgba(156,39,176,0.12));}
+    .service-card#qualification .icon{background:linear-gradient(135deg,rgba(255,87,34,0.12),rgba(255,138,0,0.12));}
+    .service-card h3{font-size:19px;margin-bottom:10px;color:var(--text);}
+    .service-card p{font-size:14px;color:var(--muted);line-height:1.7;}
+    .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;}
+    .eval-section-inner{max-width:760px;margin:0 auto;}
+    .eval-step{background:#fff;border-radius:var(--radius-lg);box-shadow:var(--shadow);border:1px solid rgba(27,99,240,0.12);overflow:hidden;margin-bottom:24px;}
+    .eval-step-head{display:flex;align-items:center;gap:12px;padding:16px 24px;background:linear-gradient(135deg,rgba(27,99,240,0.08),rgba(255,138,0,0.06));border-bottom:1px solid rgba(27,99,240,0.1);}
+    .eval-step-num{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--teal));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;}
+    .eval-step-title{font-size:17px;font-weight:600;color:var(--text);}
+    .eval-step-desc{font-size:13px;color:var(--muted);margin-top:4px;}
+    .eval-code-box{padding:28px 24px;text-align:center;}
+    .eval-code-box .hint{font-size:13px;color:var(--muted);margin-bottom:14px;}
+    .eval-code-box .input-row{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;align-items:center;}
+    .eval-code-box input{font-size:18px;letter-spacing:3px;text-align:center;padding:16px 24px;border:2px solid var(--border);border-radius:var(--radius-sm);width:100%;max-width:300px;transition:border-color .2s,box-shadow .2s;}
+    .eval-code-box input:focus{border-color:var(--primary);box-shadow:0 0 0 4px rgba(27,99,240,0.15);outline:none;}
+    .eval-code-box input::placeholder{letter-spacing:1px;}
+    .eval-code-box .btn-verify{padding:14px 28px;font-size:15px;font-weight:600;border-radius:var(--radius-sm);background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;border:none;cursor:pointer;}
+    .eval-code-box .btn-verify:hover{opacity:0.95;}
+    .eval-code-err{color:#c62828;font-size:13px;margin-top:12px;display:none;}
+    .eval-form-wrap{display:none;}
+    .eval-form-wrap.unlocked{display:block;}
+    .eval-form-wrap .eval-step-head{border-bottom:none;}
+    .eval-unlock-tip{text-align:center;padding:12px;font-size:13px;color:var(--green);background:rgba(46,125,50,0.08);border-radius:var(--radius-sm);margin-bottom:20px;}
+    .eval-card{background:#fff;border-radius:var(--radius-lg);box-shadow:var(--shadow);padding:24px 28px;margin-bottom:16px;border:1px solid rgba(226,232,240,0.9);}
+    .eval-card h2{font-size:16px;color:var(--primary-dark);margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid rgba(27,99,240,0.15);}
+    .eval-choices{display:grid;gap:12px;}
+    .eval-choice{display:flex;align-items:flex-start;gap:12px;cursor:pointer;padding:12px;border-radius:var(--radius-sm);transition:var(--transition);}
+    .eval-choice:hover{background:rgba(27,99,240,0.04);}
+    .eval-choice input{margin-top:3px;flex-shrink:0;}
+    .eval-choice .eval-option-wrap{flex:1;min-width:0;}
+    .eval-choice span{font-size:14px;color:var(--text);}
+    .eval-choice small{display:block;color:var(--muted);font-size:12px;margin-top:4px;}
+    .eval-form .form-group{margin-bottom:16px;}
+    .eval-form .label{display:block;font-size:14px;font-weight:600;margin-bottom:8px;}
+    .eval-form .label .req{color:#d32f2f;}
+    .eval-form .input,.eval-form textarea.input{width:100%;padding:12px 14px;border:1px solid var(--border);border-radius:var(--radius-sm);font-size:14px;background:#fff;outline:none;}
+    .eval-form .input:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(27,99,240,0.12);}
+    .eval-form textarea.input{min-height:90px;resize:vertical;}
+    .eval-notice{font-size:12px;color:var(--muted);background:rgba(255,138,0,0.08);border:1px solid rgba(255,138,0,0.25);border-radius:var(--radius-sm);padding:14px;line-height:1.6;margin-top:12px;}
+    .eval-notice strong{color:var(--text);}
+    .eval-result{display:none;margin-top:16px;border-radius:var(--radius-lg);padding:20px;background:linear-gradient(135deg,rgba(27,99,240,0.06),rgba(0,137,123,0.06));border:1px solid rgba(27,99,240,0.15);color:var(--muted);font-size:14px;line-height:1.7;}
+    .eval-result strong{color:var(--text);}
+    .pricing-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
+    @media(max-width:780px){.pricing-grid{grid-template-columns:1fr;}}
+    .price-card{background:#fff;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow);transition:var(--transition);}
+    .price-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-strong);}
+    .price-card h3{font-size:15px;padding:16px 20px;margin:0;background:linear-gradient(135deg,var(--primary),var(--teal));color:#fff;}
+    .price-table{width:100%;border-collapse:collapse;font-size:13px;}
+    .price-table th,.price-table td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--border);}
+    .price-table th{background:rgba(27,99,240,0.06);color:var(--primary-dark);}
+    .row-total{background:rgba(255,193,7,0.2);font-weight:700;}
+    .num{text-align:right;}
+    .collect-card{background:#fff;border-radius:var(--radius-lg);padding:30px;box-shadow:var(--shadow);}
+    .collect-table{width:100%;border-collapse:collapse;font-size:14px;}
+    .collect-table th,.collect-table td{padding:14px 16px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top;}
+    .collect-table th{width:150px;background:rgba(27,99,240,0.06);color:var(--primary-dark);}
+    .collect-table input,.collect-table textarea{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:var(--radius-sm);font-size:14px;}
+    .collect-table input:focus,.collect-table textarea:focus{border-color:var(--primary);box-shadow:0 0 0 2px rgba(27,99,240,0.12);outline:none;}
+    .collect-table .hint{font-size:12px;color:var(--muted);margin-top:6px;}
+    .collect-note{margin-top:18px;padding:14px;background:rgba(255,138,0,0.08);border-radius:var(--radius-sm);font-size:12px;color:var(--muted);}
+    .about-content{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
+    .about-text p{margin-bottom:18px;color:var(--muted);line-height:1.8;}
+    .value-tag{display:inline-block;padding:8px 16px;border-radius:999px;font-size:13px;margin-right:10px;margin-top:10px;}
+    .value-tag:nth-child(1){background:rgba(27,99,240,0.1);color:var(--primary-dark);}
+    .value-tag:nth-child(2){background:rgba(0,137,123,0.1);color:var(--teal);}
+    .value-tag:nth-child(3){background:rgba(255,138,0,0.1);color:var(--accent2);}
+    .value-tag:nth-child(4){background:rgba(46,125,50,0.1);color:var(--green);}
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;}
+    .contact-info h3{font-size:18px;margin-bottom:18px;}
+    .contact-item{margin-bottom:16px;color:var(--muted);}
+    .contact-form{background:#fff;border-radius:var(--radius-lg);padding:30px;box-shadow:var(--shadow);}
+    .form-group{margin-bottom:18px;}
+    .form-label{display:block;font-size:14px;font-weight:600;margin-bottom:8px;}
+    .form-input,.form-textarea{width:100%;padding:14px 16px;border:1px solid var(--border);border-radius:var(--radius-sm);font-size:14px;outline:none;}
+    .form-input:focus,.form-textarea:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(27,99,240,0.15);}
+    .form-textarea{min-height:110px;resize:vertical;}
+    footer{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 100%);color:rgba(255,255,255,0.85);padding:32px 24px;text-align:center;}
+    footer a{color:#64b5f6;}
+    section.alt{background:linear-gradient(180deg,#fff 0%,#f5f9fc 100%);}
+    section.bg2{background:linear-gradient(180deg,#e8f4fd 0%,#f0f4f8 100%);}
+    @media(max-width:768px){.nav-menu{display:none;}.about-content,.contact-grid{grid-template-columns:1fr;}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <a href="#home" class="brand">
+        <div class="logo-box" aria-label="湘泰国际"><div class="logo-mark">XT</div></div>
+        <div class="brand-text"><span class="cn">湘泰出海</span><span class="en">XIA<span>N</span>GTAI GO GLOBAL</span></div>
+      </a>
+      <nav class="nav-menu">
+        <a href="#home">首页</a>
+        <a href="#evaluate">评估方案</a>
+        <a href="#register">公司注册</a>
+        <a href="#tax">税务管理</a>
+        <a href="#logistics">物流合作</a>
+        <a href="#warehouse">海外仓入仓</a>
+        <a href="#qualification">资质办理</a>
+        <a href="#pricing">价格表</a>
+        <a href="#collect">信息采集</a>
+        <a href="#about">关于我们</a>
+        <a href="#contact">联系我们</a>
+      </nav>
+      <a href="#evaluate" class="btn btn-accent">免费评估</a>
+    </div>
+  </header>
+
+  <section id="home" class="intro-hero">
+    <span class="section-label">公司介绍</span>
+    <h1>湘泰出海 · <span class="hl">泰国一站式本土服务平台</span></h1>
+    <p>湘泰国际（XIANGTAI）深耕泰国本土市场，致力于为中国品牌和卖家提供从公司注册、财税合规、资质认证到电商运营、物流仓储的全链路出海服务。我们拥有本土律师、会计团队及丰富的平台与渠道资源，帮助客户少走弯路、高效落地泰国市场。</p>
+    <div class="intro-cards">
+      <div class="intro-card"><div class="val">280+</div><div class="lbl">服务品牌/卖家</div></div>
+      <div class="intro-card"><div class="val">1,200+</div><div class="lbl">本土合作资源</div></div>
+      <div class="intro-card"><div class="val">98%</div><div class="lbl">项目按期落地</div></div>
+    </div>
+  </section>
+
+  <section id="evaluate" class="alt">
+    <span class="section-label">免费评估</span>
+    <h2 class="section-title">方案评估</h2>
+    <p class="section-subtitle">意向客户向客服索取通行证后，在此输入；匹配通过即可进入评估表，一码一次。</p>
+    <div class="eval-section-inner">
+      <div class="eval-step">
+        <div class="eval-step-head">
+          <span class="eval-step-num">1</span>
+          <div>
+            <div class="eval-step-title">输入通行证</div>
+            <div class="eval-step-desc">请填写客服提供给您的评估码（格式：XT+日期+6位字符）</div>
+          </div>
+        </div>
+        <div class="eval-code-box">
+          <p class="hint">请输入评估码，输入后自动校验或按回车</p>
+          <div class="input-row">
+            <input type="text" id="evalCodeInput" placeholder="例如 XT20250228ABC123" maxlength="20" autocomplete="off" aria-label="评估码" />
+            <button type="button" id="evalVerifyBtn" class="btn-verify" aria-label="验证评估码">验证</button>
+          </div>
+          <p class="eval-code-err" id="evalCodeErr">通行证无效或已被使用，请核对后重试或联系客服获取新码</p>
+        </div>
+      </div>
+      <div class="eval-form-wrap" id="evalFormWrap">
+        <div class="eval-unlock-tip">✓ 验证通过，请填写下方评估表</div>
+        <div class="eval-step">
+          <div class="eval-step-head">
+            <span class="eval-step-num">2</span>
+            <div>
+              <div class="eval-step-title">填写评估表</div>
+              <div class="eval-step-desc">根据您的需求勾选，提交后我们将为您整理方案要点</div>
+            </div>
+          </div>
+        <form id="evalForm" style="padding:24px;">
+        <div class="eval-card">
+          <h2>联系信息</h2>
+          <div class="eval-form">
+            <div class="form-group"><label class="label">联系人姓名 <span class="req">*</span></label><input class="input" name="name" required placeholder="请输入姓名" /></div>
+            <div class="form-group"><label class="label">手机号 <span class="req">*</span></label><input class="input" name="phone" required placeholder="请输入手机号" /></div>
+            <div class="form-group"><label class="label">公司/品牌名</label><input class="input" name="company" placeholder="选填" /></div>
+            <div class="form-group"><label class="label">销售额</label><input class="input" name="sales_amount" type="text" placeholder="选填，如：年销售额 100 万人民币" /></div>
+          </div>
+        </div>
+        <div class="eval-card">
+          <h2>1. Mall店需求</h2>
+          <div class="eval-choices">
+            <label class="eval-choice"><input type="radio" name="mall" value="shopee" /><span><strong>1.1</strong> Shopee Mall</span></label>
+            <label class="eval-choice"><input type="radio" name="mall" value="tkmall" /><span><strong>1.2</strong> TK Mall</span></label>
+            <label class="eval-choice"><input type="radio" name="mall" value="both" /><span><strong>1.3</strong> 以上都是</span></label>
+            <label class="eval-choice"><input type="radio" name="mall" value="enterprise" /><span><strong>1.4</strong> 普通企业店</span></label>
+            <label class="eval-choice"><input type="radio" name="mall" value="none" /><span><strong>1.5</strong> 无店铺注册需求</span></label>
+          </div>
+        </div>
+        <div class="eval-card">
+          <h2>2. 销售的产品类型</h2>
+          <div class="eval-choices">
+            <label class="eval-choice"><input type="radio" name="product_type" value="general" /><div class="eval-option-wrap"><span><strong>2.1</strong> 普货</span><small>不需要办理资质的产品</small></div></label>
+            <label class="eval-choice"><input type="radio" name="product_type" value="licensed" /><div class="eval-option-wrap"><span><strong>2.2</strong> 涉证货</span><small>需要办理FDA/TISI/DLD等资质的产品</small></div></label>
+          </div>
+        </div>
+        <div class="eval-card">
+          <h2>3. 物流清关</h2>
+          <div class="eval-choices">
+            <label class="eval-choice"><input type="radio" name="logistics" value="formal" /><div class="eval-option-wrap"><span><strong>3.1</strong> 正清</span><small>产品缴纳关税增值税入境泰国</small></div></label>
+            <label class="eval-choice"><input type="radio" name="logistics" value="grey" /><div class="eval-option-wrap"><span><strong>3.2</strong> 灰清</span><small>无法提供产品的关单以及税票</small></div></label>
+            <label class="eval-choice"><input type="radio" name="logistics" value="both" /><span><strong>3.3</strong> 正清以及灰清都有</span></label>
+          </div>
+        </div>
+        <div class="eval-card">
+          <h2>4. 资质需求</h2>
+          <div class="eval-choices">
+            <label class="eval-choice"><input type="radio" name="qualification" value="fda" /><span><strong>4.1</strong> FDA</span></label>
+            <label class="eval-choice"><input type="radio" name="qualification" value="tisi" /><span><strong>4.2</strong> TISI</span></label>
+            <label class="eval-choice"><input type="radio" name="qualification" value="dld" /><span><strong>4.3</strong> DLD</span></label>
+            <label class="eval-choice"><input type="radio" name="qualification" value="nbtc" /><span><strong>4.4</strong> NBTC</span></label>
+            <label class="eval-choice"><input type="radio" name="qualification" value="none" /><span><strong>4.5</strong> 无认证需求</span></label>
+          </div>
+          <p class="eval-option-desc" style="font-size:13px;color:var(--muted);margin-top:12px;margin-bottom:8px;">资质办理方式（选填）</p>
+          <div class="eval-choices">
+            <label class="eval-choice"><input type="radio" name="qualification_process" value="affiliate" /><span><strong>4.1.1</strong> 挂靠办理</span></label>
+            <label class="eval-choice"><input type="radio" name="qualification_process" value="own_address" /><div class="eval-option-wrap"><span><strong>4.1.2</strong> 自有地址真实办理</span><small>在泰国有可以认证的实际地址</small></div></label>
+            <label class="eval-choice"><input type="radio" name="qualification_process" value="no_address" /><div class="eval-option-wrap"><span><strong>4.1.3</strong> 没有地址真实办理</span><small>在泰国无可以认证的实际地址</small></div></label>
+          </div>
+        </div>
+        <div class="eval-card">
+          <h2>5. 工作签证需求</h2>
+          <div class="eval-choices">
+            <label class="eval-choice"><input type="radio" name="work_permit" value="yes_with_address" /><div class="eval-option-wrap"><span><strong>5.1</strong> 是</span><small>5.1.1 有实际工作地址挂靠</small></div></label>
+            <label class="eval-choice"><input type="radio" name="work_permit" value="yes_no_address" /><div class="eval-option-wrap"><span><strong>5.1</strong> 是</span><small>5.1.2 无实际工作地址挂靠</small></div></label>
+            <label class="eval-choice"><input type="radio" name="work_permit" value="no" /><span><strong>5.2</strong> 否</span></label>
+          </div>
+        </div>
+        <div class="eval-card">
+          <h2>6. 开票需求</h2>
+          <div class="eval-choices">
+            <label class="eval-choice"><input type="radio" name="invoicing" value="yes" /><span><strong>6.1</strong> 有</span></label>
+            <label class="eval-choice"><input type="radio" name="invoicing" value="no" /><span><strong>6.2</strong> 无</span></label>
+          </div>
+        </div>
+        <div class="eval-card">
+          <h2>7. 法人是否能来泰国开户</h2>
+          <div class="eval-choices">
+            <label class="eval-choice"><input type="radio" name="legal_thailand" value="yes" /><span><strong>7.1</strong> 可以</span></label>
+            <label class="eval-choice"><input type="radio" name="legal_thailand" value="no" /><span><strong>7.2</strong> 不可以</span></label>
+          </div>
+        </div>
+        <div class="eval-card">
+          <h2>8. 补充说明</h2>
+          <div class="eval-form"><div class="form-group"><label class="label">其他需求/品类/计划时间（选填）</label><textarea class="input" name="remark" placeholder="例如：经营品类、预计上线时间、是否已有泰国地址/人员等"></textarea></div></div>
+        </div>
+        <button class="btn btn-primary" type="submit" style="width:100%;padding:16px;font-size:16px;">提交评估表</button>
+        <div id="evalResult" class="eval-result"></div>
+      </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="register" class="bg2">
+    <span class="section-label">核心业务</span>
+    <h2 class="section-title">公司注册</h2>
+    <p class="section-subtitle">泰国公司注册、选型顾问、全流程代办，含地址与秘书服务。协助 Mall 店入驻、FDA/TISI/DLD/NBTC 等产品资质认证。</p>
+    <div class="services-grid">
+      <article class="service-card" id="regCard">
+        <div class="icon">&#127970;</div>
+        <h3>公司注册咨询</h3>
+        <p>泰国公司注册、选型顾问、全流程代办，含地址与秘书服务。协助 Mall 店入驻、FDA/TISI/DLD/NBTC 等产品资质认证。</p>
+        <a href="#evaluate" class="btn btn-primary" style="margin-top:12px;">免费评估方案 &rarr;</a>
+      </article>
+    </div>
+  </section>
+
+  <section id="tax" class="alt">
+    <span class="section-label">核心业务</span>
+    <h2 class="section-title">税务管理</h2>
+    <p class="section-subtitle">记账报税、税务筹划、合规指引，降低税务与合规风险。VAT 办理、财税合规一站式服务。</p>
+    <div class="services-grid">
+      <article class="service-card">
+        <div class="icon">&#128202;</div>
+        <h3>税务咨询</h3>
+        <p>记账报税、税务筹划、合规指引，降低税务与合规风险。VAT 办理、财税合规一站式服务。</p>
+        <a href="#contact" class="btn btn-primary" style="margin-top:12px;">了解更多 &rarr;</a>
+      </article>
+    </div>
+  </section>
+
+  <section id="logistics" class="bg2">
+    <span class="section-label">核心业务</span>
+    <h2 class="section-title">物流合作</h2>
+    <p class="section-subtitle">跨境物流头程、零担普货、快运、整车直达、仓储中转、清关协调，按品类与时效定制方案。</p>
+    <div class="services-grid">
+      <article class="service-card">
+        <div class="icon">&#128666;</div>
+        <h3>物流板块</h3>
+        <p>跨境物流头程、零担普货、快运、整车直达、仓储中转、清关协调，按品类与时效定制方案。</p>
+        <a href="xiangtai-logistics.html#logistics" class="btn btn-primary" style="margin-top:12px;">运单查询 / 在线下单 &rarr;</a>
+      </article>
+    </div>
+  </section>
+
+  <section id="warehouse" class="alt">
+    <span class="section-label">核心业务</span>
+    <h2 class="section-title">海外仓入仓</h2>
+    <p class="section-subtitle">泰国本土仓储、一件代发、库存管理，助力电商卖家降低物流成本、提升配送时效。</p>
+    <div class="services-grid">
+      <article class="service-card">
+        <div class="icon">&#128230;</div>
+        <h3>海外仓板块</h3>
+        <p>泰国本土仓储、一件代发、库存管理，助力电商卖家降低物流成本、提升配送时效。</p>
+        <a href="#contact" class="btn btn-primary" style="margin-top:12px;">了解更多 &rarr;</a>
+      </article>
+    </div>
+  </section>
+
+  <section id="qualification" class="bg2">
+    <span class="section-label">核心业务</span>
+    <h2 class="section-title">资质办理</h2>
+    <p class="section-subtitle">FDA、TISI、DLD、NBTC 等产品资质认证，协助品牌合规入驻泰国市场。</p>
+    <div class="services-grid">
+      <article class="service-card">
+        <div class="icon">&#9989;</div>
+        <h3>资质认证</h3>
+        <p>FDA、TISI、DLD、NBTC 等产品资质认证，协助品牌合规入驻泰国市场。</p>
+        <a href="#contact" class="btn btn-primary" style="margin-top:12px;">了解更多 &rarr;</a>
+      </article>
+    </div>
+  </section>
+
+  <section id="pricing" class="alt">
+    <span class="section-label">收费参考</span>
+    <h2 class="section-title">公司注册价格表（泰铢）</h2>
+    <p class="section-subtitle">以下为第一年及后续每年服务费用参考，具体以签约为准。</p>
+    <div class="pricing-grid">
+      <div class="price-card"><h3>Mall店项目 · 中国法人中泰合资</h3><table class="price-table"><tr><th>服务项目</th><th class="num">第一年</th><th class="num">后续每年</th></tr><tr><td>资料+申请+服务费</td><td class="num">34,000</td><td class="num">—</td></tr><tr><td>真实商业挂靠地址/年</td><td class="num">32,000</td><td class="num">30,000</td></tr><tr><td>注册VAT</td><td class="num">5,000</td><td class="num">—</td></tr><tr><td>会计做账(零报)</td><td class="num">18,000</td><td class="num">18,000</td></tr><tr><td>VAT实缴年费</td><td class="num">9,600</td><td class="num">9,600</td></tr><tr class="row-total"><td>总计</td><td class="num">92,500 ฿</td><td class="num">35,000 ฿</td></tr></table></div>
+      <div class="price-card"><h3>Mall店项目 · 中国法人纯中合资</h3><table class="price-table"><tr><th>服务项目</th><th class="num">第一年</th><th class="num">后续每年</th></tr><tr><td>资料+申请+服务费</td><td class="num">34,000</td><td class="num">—</td></tr><tr><td>真实商业挂靠地址/年</td><td class="num">32,000</td><td class="num">30,000</td></tr><tr><td>注册VAT</td><td class="num">5,000</td><td class="num">—</td></tr><tr><td>会计做账(零报)</td><td class="num">18,000</td><td class="num">18,000</td></tr><tr class="row-total"><td>总计</td><td class="num">82,500 ฿</td><td class="num">35,000 ฿</td></tr></table></div>
+      <div class="price-card"><h3>普通公司 · 中国法人中泰合资</h3><table class="price-table"><tr><th>服务项目</th><th class="num">第一年</th><th class="num">后续每年</th></tr><tr><td>资料+申请+服务费</td><td class="num">34,000</td><td class="num">—</td></tr><tr><td>真实商业挂靠地址/年</td><td class="num">20,000</td><td class="num">20,000</td></tr><tr><td>会计做账(零报)</td><td class="num">18,000</td><td class="num">18,000</td></tr><tr class="row-total"><td>总计</td><td class="num">75,500 ฿</td><td class="num">25,000 ฿</td></tr></table></div>
+      <div class="price-card"><h3>普通公司 · 中国法人纯中合资</h3><table class="price-table"><tr><th>服务项目</th><th class="num">第一年</th><th class="num">后续每年</th></tr><tr><td>资料+申请+服务费</td><td class="num">34,000</td><td class="num">—</td></tr><tr><td>真实商业挂靠地址/年</td><td class="num">25,000</td><td class="num">25,000</td></tr><tr><td>会计做账(零报)</td><td class="num">18,000</td><td class="num">18,000</td></tr><tr class="row-total"><td>总计</td><td class="num">70,500 ฿</td><td class="num">25,000 ฿</td></tr></table></div>
+    </div>
+  </section>
+
+  <section id="collect">
+    <span class="section-label">信息采集</span>
+    <h2 class="section-title">公司注册信息采集表</h2>
+    <p class="section-subtitle">请按项填写，便于核名与后续办理。如需本地人做法人，法人相关项可不填。</p>
+    <div class="collect-card">
+      <form id="collectForm" onsubmit="return false;">
+        <table class="collect-table">
+          <tr><th>公司名称</th><td><input name="company_name" placeholder="1-3个英文名称，不接受中文" /><div class="hint">律师核名并按您提供的顺序使用。</div></td></tr>
+          <tr><th>公司营业范围</th><td><textarea name="scope" placeholder="3-5个销售产品类目英文描述，含进出口贸易"></textarea></td></tr>
+          <tr><th>法人姓名</th><td><input name="legal_name" placeholder="英文拼音，如 LI MING (姓+名)" /></td></tr>
+          <tr><th>法人出生日期</th><td><input name="legal_dob" placeholder="与护照一致，如 30/01/2019" /></td></tr>
+          <tr><th>法人国籍</th><td><input name="legal_nationality" placeholder="英文，如 CHINA" /></td></tr>
+          <tr><th>法人护照号</th><td><input name="legal_passport" placeholder="如 EF4702069" /></td></tr>
+          <tr><th>法人护照签发日</th><td><input name="legal_passport_date" placeholder="与护照一致（必填）" /></td></tr>
+          <tr><th>当事人联系方式(电话)</th><td><input type="tel" name="contact_phone" placeholder="服务期间可能需您配合" /></td></tr>
+          <tr><th>注册资本</th><td><input name="capital" placeholder="拟注册资本金额" /></td></tr>
+          <tr><th>持股</th><td><input name="shareholding" placeholder="泰籍人固定占股51%" /><div class="hint">泰籍股东占股需符合当地要求。</div></td></tr>
+        </table>
+        <div class="collect-note"><strong>补充：</strong>中国人做法人的，请将法人护照首页（露出四角）及身份证正面扫描件与此表一并提交。</div>
+        <button type="submit" class="btn btn-primary" style="width:100%;margin-top:20px;">提交信息采集表</button>
+      </form>
+    </div>
+  </section>
+
+  <section id="about" class="alt">
+    <span class="section-label">关于我们</span>
+    <h2 class="section-title">关于我们</h2>
+    <div class="about-content">
+      <div class="about-text">
+        <p>湘泰国际（XIANGTAI）深耕泰国本土市场，致力于为中国品牌和卖家提供从公司注册、财税合规、资质认证到电商运营、物流仓储的全链路出海服务。</p>
+        <p>我们拥有本土律师、会计团队及丰富的平台与渠道资源，帮助客户少走弯路、高效落地泰国市场。</p>
+        <div><span class="value-tag">本土合规</span><span class="value-tag">一站式服务</span><span class="value-tag">资源丰富</span><span class="value-tag">高效落地</span></div>
+      </div>
+      <div><p style="color:var(--muted);">品牌色彩：蓝色代表专业与信任，青绿与橙红象征连接与全球化，与湘泰国际 VI 保持一致。</p></div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <span class="section-label">联系我们</span>
+    <h2 class="section-title">联系我们</h2>
+    <p class="section-subtitle">欢迎咨询泰国本土服务，工作日内我们将尽快与您取得联系。</p>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>联系方式</h3>
+        <div class="contact-item"><strong>客服热线：</strong> 400-XXX-XXXX</div>
+        <div class="contact-item"><strong>邮箱：</strong> contact@xiangtai.com</div>
+        <div class="contact-item"><strong>地址：</strong> 泰国曼谷 / 中国长沙（示例）</div>
+      </div>
+      <div class="contact-form">
+        <form id="contactForm" onsubmit="return false;">
+          <div class="form-group"><label class="form-label">姓名 *</label><input class="form-input" type="text" placeholder="请输入姓名" required /></div>
+          <div class="form-group"><label class="form-label">手机/邮箱 *</label><input class="form-input" type="text" placeholder="便于我们回复" required /></div>
+          <div class="form-group"><label class="form-label">合作或需求说明</label><textarea class="form-textarea" placeholder="简要描述您的品类、阶段及核心需求"></textarea></div>
+          <button type="submit" class="btn btn-primary" style="width:100%;">提交咨询</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 湘泰出海 版权所有 &middot; 泰国一站式本土服务平台</p>
+    <p style="margin-top:12px;"><a href="#home">首页</a> &middot; <a href="#evaluate">评估方案</a> &middot; <a href="#about">关于我们</a> &middot; <a href="#contact">联系我们</a> &middot; <a href="#pricing">价格表</a> &middot; <a href="#collect">信息采集</a></p>
+  </footer>
+
+  <script src="eval-pass.js"></script>
+  <script src="supabase-config.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var id=this.getAttribute('href').slice(1);if(id){var el=document.getElementById(id);if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth',block:'start'});}}});});
+    document.getElementById('contactForm').addEventListener('submit',function(){alert('感谢您的咨询！我们将在工作日内尽快与您联系。');});
+    document.getElementById('collectForm').addEventListener('submit',function(){alert('信息采集表已提交，我们会尽快与您确认。');});
+
+    (function(){
+      var usedCodes=JSON.parse(localStorage.getItem('xiangtai_used_codes')||'[]');
+      var input=document.getElementById('evalCodeInput');
+      var err=document.getElementById('evalCodeErr');
+      var wrap=document.getElementById('evalFormWrap');
+      var pass=window.XiangtaiEvalPass;
+
+      function setErr(msg){err.textContent=msg||'';err.style.display=msg?'block':'none';}
+      function setUnlocked(ok){wrap.classList.toggle('unlocked',!!ok);}
+
+      function checkCode(){
+        var code=(input.value||'').trim().toUpperCase();
+        if(!code){setErr('');setUnlocked(false);return;}
+        if(usedCodes.indexOf(code)!==-1){setErr('该通行证已使用，请联系客服获取新码');setUnlocked(false);return;}
+        if(!pass||!pass.verify(code)){setErr('通行证无效，请核对后重试或联系客服');setUnlocked(false);return;}
+        setErr('');setUnlocked(true);
+        wrap.scrollIntoView({behavior:'smooth',block:'start'});
+      }
+      input.addEventListener('input',checkCode);
+      input.addEventListener('blur',checkCode);
+      input.addEventListener('keyup',function(e){if(e.key==='Enter')checkCode();});
+      var verifyBtn=document.getElementById('evalVerifyBtn');
+      if(verifyBtn)verifyBtn.onclick=checkCode;
+
+      document.getElementById('evalForm').addEventListener('submit',function(e){
+        e.preventDefault();
+        var code=(input.value||'').trim().toUpperCase();
+        if(!pass||!pass.verify(code)){setErr('通行证无效，无法提交');return;}
+        if(usedCodes.indexOf(code)!==-1){setErr('该通行证已使用');return;}
+        var form=document.getElementById('evalForm');
+        var get=function(n){var el=form.querySelector('[name="'+n+'"]');return el?el.value.trim():'';};
+        var getChecked=function(n){var el=form.querySelector('[name="'+n+'"]:checked');return el?el.value:'';};
+        var row={eval_code:code,name:get('name'),phone:get('phone'),company:get('company'),sales_amount:get('sales_amount'),mall:getChecked('mall'),product_type:getChecked('product_type'),logistics:getChecked('logistics'),qualification:getChecked('qualification'),qualification_process:getChecked('qualification_process'),work_permit:getChecked('work_permit'),invoicing:getChecked('invoicing'),legal_thailand:getChecked('legal_thailand'),remark:get('remark')};
+        var supabaseUrl=(typeof window.SUPABASE_URL!=='undefined'?window.SUPABASE_URL:'').trim();
+        var supabaseKey=(typeof window.SUPABASE_ANON_KEY!=='undefined'?window.SUPABASE_ANON_KEY:'').trim();
+        if(supabaseUrl&&supabaseKey){
+          var client=window.supabase.createClient(supabaseUrl,supabaseKey);
+          client.from('eval_submissions').insert(row).then(function(r){
+            usedCodes.push(code);
+            localStorage.setItem('xiangtai_used_codes',JSON.stringify(usedCodes));
+            showResult();
+            if(r.error){ console.warn('评估方案上传失败',r.error); document.getElementById('evalResult').innerHTML='<p style="color:var(--muted);margin-bottom:12px;">已提交，云端同步未完成不影响我们与您联系。</p>'+document.getElementById('evalResult').innerHTML; }
+          }).catch(function(){
+            usedCodes.push(code);
+            localStorage.setItem('xiangtai_used_codes',JSON.stringify(usedCodes));
+            showResult();
+          });
+        }else{
+          usedCodes.push(code);
+          localStorage.setItem('xiangtai_used_codes',JSON.stringify(usedCodes));
+          showResult();
+        }
+      });
+
+      function showResult(){
+        var val=function(n){var el=document.querySelector('#evalForm [name="'+n+'"]:checked');return el?el.value:'';};
+        var mall=val('mall'),productType=val('product_type'),logistics=val('logistics'),qual=val('qualification'),qualProcess=val('qualification_process'),wp=val('work_permit'),inv=val('invoicing'),legalTh=val('legal_thailand');
+        var labels={mall:{shopee:'1.1 Shopee Mall',tkmall:'1.2 TK Mall',both:'1.3 以上都是',enterprise:'1.4 普通企业店',none:'1.5 无店铺注册需求'},product_type:{general:'2.1 普货',licensed:'2.2 涉证货'},logistics:{formal:'3.1 正清',grey:'3.2 灰清',both:'3.3 正清以及灰清都有'},qualification:{fda:'4.1 FDA',tisi:'4.2 TISI',dld:'4.3 DLD',nbtc:'4.4 NBTC',none:'4.5 无认证需求'},qualification_process:{affiliate:'4.1.1 挂靠办理',own_address:'4.1.2 自有地址真实办理',no_address:'4.1.3 没有地址真实办理'},work_permit:{yes_with_address:'5.1 是（有实际工作地址挂靠）',yes_no_address:'5.1 是（无实际工作地址挂靠）',no:'5.2 否'},invoicing:{yes:'6.1 有',no:'6.2 无'},legal_thailand:{yes:'7.1 可以',no:'7.2 不可以'}};
+        var salesAmount=document.querySelector('#evalForm [name="sales_amount"]'); salesAmount=salesAmount?salesAmount.value.trim():'';
+        var lines=['<strong>需求要点总结</strong>','1. Mall店需求：'+(labels.mall[mall]||mall||'未选择'),'2. 销售的产品类型：'+(labels.product_type[productType]||productType||'未选择'),'3. 物流清关：'+(labels.logistics[logistics]||logistics||'未选择'),'4. 资质需求：'+(labels.qualification[qual]||qual||'未选择')+(qualProcess?('；办理方式：'+labels.qualification_process[qualProcess]):''),'5. 工作签证需求：'+(labels.work_permit[wp]||wp||'未选择'),'6. 开票需求：'+(labels.invoicing[inv]||inv||'未选择'),'7. 法人是否能来泰国开户：'+(labels.legal_thailand[legalTh]||legalTh||'未选择')];
+        if(salesAmount)lines.splice(1,0,'销售额：'+salesAmount);
+        var schemes=[];
+        if(mall&&mall!=='none'){ if(mall==='shopee')schemes.push('Shopee Mall 入驻方案（含 VAT 注册）'); else if(mall==='tkmall')schemes.push('TK Mall 入驻方案'); else if(mall==='both')schemes.push('Shopee + TK Mall 双平台入驻方案（含 VAT）'); else if(mall==='enterprise')schemes.push('普通企业店注册方案'); }
+        if((mall&&mall!=='none')||(qual&&qual!=='none')||(wp&&wp!=='no'))schemes.push('泰国公司注册与地址挂靠方案');
+        if(productType==='general')schemes.push('普货物流与清关方案');
+        if(productType==='licensed')schemes.push('涉证产品资质+物流一体化方案');
+        if(logistics==='formal'||logistics==='both')schemes.push('正清进口方案（关税+VAT+进口许可证）');
+        if(logistics==='grey'||logistics==='both')schemes.push('灰清/双清到门方案');
+        if(qual==='fda')schemes.push('FDA 认证办理方案'+(qualProcess?('（'+labels.qualification_process[qualProcess]+'）':'')); if(qual==='tisi')schemes.push('TISI 认证办理方案'+(qualProcess?('（'+labels.qualification_process[qualProcess]+'）':'')); if(qual==='dld')schemes.push('DLD 认证办理方案'+(qualProcess?('（'+labels.qualification_process[qualProcess]+'）':'')); if(qual==='nbtc')schemes.push('NBTC 认证办理方案'+(qualProcess?('（'+labels.qualification_process[qualProcess]+'）':''));
+        if(wp&&wp!=='no')schemes.push('工作签证/工作证方案'+(wp==='yes_with_address'?'（有地址挂靠）':'（无地址挂靠）'));
+        if(inv==='yes')schemes.push('开票与财税合规方案');
+        if(schemes.length)lines.push('<br/><strong>根据您的选择，为您推荐以下方案</strong>'); schemes.forEach(function(s){lines.push('· '+s);});
+        lines.push('<br/><strong>系统提示</strong>');
+        if(mall==='shopee'||mall==='both'||logistics==='formal'||logistics==='both')lines.push('· 您的选择可能涉及 <strong>VAT（税号）</strong>。');
+        if(qual&&qual!=='none'||wp&&wp!=='no')lines.push('· 您的选择可能涉及 <strong>地址验证</strong>（请准备可验证的公司地址与配套条件）。');
+        if(legalTh==='no')lines.push('· 法人无法来泰国开户，需提前沟通 <strong>远程/代理开户</strong> 等替代方案。');
+        document.getElementById('evalResult').style.display='block';
+        document.getElementById('evalResult').innerHTML=lines.join('<br/>');
+      }
+    })();
+  </script>
+</body>
+</html>
