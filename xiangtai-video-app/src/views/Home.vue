@@ -19,24 +19,6 @@
       </div>
     </div>
 
-    <div class="panel">
-      <h2>测试账号（本地）</h2>
-      <div class="accounts">
-        <div class="account">
-          <span class="tag">Admin</span>
-          <span class="kv">admin / 123456</span>
-        </div>
-        <div class="account">
-          <span class="tag">Client</span>
-          <span class="kv">client / 123456</span>
-        </div>
-        <div class="account">
-          <span class="tag">Influencer</span>
-          <span class="kv">influencer / 123456</span>
-        </div>
-      </div>
-      <p class="hint">提示：生产环境请更换默认密码，并设置 JWT_SECRET 与 CORS_ORIGIN。</p>
-    </div>
   </div>
 </template>
 
@@ -115,58 +97,4 @@
   color: #a1a1aa;
 }
 
-.panel {
-  max-width: 980px;
-  margin: 0 auto;
-  padding: 1.25rem;
-  background: #18181b;
-  border: 1px solid #27272a;
-  border-radius: 12px;
-}
-
-.panel h2 {
-  font-size: 1rem;
-  color: #fafafa;
-  margin-bottom: 0.75rem;
-}
-
-.accounts {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 0.75rem;
-}
-
-.account {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.75rem 1rem;
-  background: #111113;
-  border: 1px solid #27272a;
-  border-radius: 10px;
-}
-
-.tag {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 74px;
-  padding: 0.25rem 0.5rem;
-  font-size: 0.75rem;
-  color: #a1a1aa;
-  background: #27272a;
-  border-radius: 999px;
-}
-
-.kv {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
-  font-size: 0.8125rem;
-  color: #e4e4e7;
-}
-
-.hint {
-  margin-top: 0.75rem;
-  font-size: 0.8125rem;
-  color: #71717a;
-}
 </style>
